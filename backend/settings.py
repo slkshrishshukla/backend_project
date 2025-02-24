@@ -18,7 +18,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = 'django-insecure-v+w86s_wnbbes&2livp0oqmyvo#vx7jw#)g&sa-!jol^ds)o6s'
 SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG" "False").lower() == True 
+DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
@@ -87,8 +88,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-database_url =os.environ.get("DATABASE_URL")
-DATABASES['default'] =dj_database_url.config(database_url) 
+# database_url =os.environ.get("DATABASE_URL")
+# DATABASES['default'] =dj_database_url.config(database_url) 
 # DATABASES['default'] =dj_database_url.config(default='postgresql://backend_database_hm3s_user:TTjitkSQbc4f85matXylYzeMqhXJjCjx@dpg-cutl2i3qf0us739vuci0-a.oregon-postgres.render.com/backend_database_hm3s') 
 
 # Password validation
